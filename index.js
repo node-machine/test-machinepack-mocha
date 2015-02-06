@@ -38,7 +38,5 @@ module.exports = function mochaDriver(pathToMachinepackDir) {
     });
   }, function afterRunningAllTests(err) {
     // Done.
-    console.log('err?',err);
-    console.log('done.');
   });
 };
