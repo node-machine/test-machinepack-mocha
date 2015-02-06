@@ -6,17 +6,13 @@ var _ = require('lodash');
 var RawMachinepackTestRunner = require('test-machinepack').rawTestRunner;
 
 
-//
-// TODO: call mocha programatically instead of relying on omniscient `npm test` bash script in package.json
-//
-
 // Customize generic test driver for mocha
 module.exports = function mochaDriver(pathToMachinepackDir) {
 
   // Use cwd as our path unless overridden by the arg above
   pathToMachinepackDir = pathToMachinepackDir || process.cwd();
 
-  RawMachinepackTestRunner(function beforeRunningAnyTests(opts, done){
+  RawMachinepackTestRunner(pathToMachinepackDir,function beforeRunningAnyTests(opts, done){
     // e.g. set mocha.opts based on generic `opts` provided
     // TODO
     done();
@@ -42,5 +38,7 @@ module.exports = function mochaDriver(pathToMachinepackDir) {
     });
   }, function afterRunningAllTests(err) {
     // Done.
+    console.log('err?',err);
+    console.log('done.');
   });
 };
