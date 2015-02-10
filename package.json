@@ -17,10 +17,12 @@
     "testmachinepack-mocha": "./bin/testmachinepack-mocha.js"
   },
   "dependencies": {
-    "lodash": "^3.1.0",
     "async": "^0.9.0",
-    "test-machinepack": "^0.1.7",
-    "mocha": "^2.1.0"
+    "fs-extra": "^0.16.3",
+    "lodash": "^3.1.0",
+    "mocha": "^2.1.0",
+    "test-machinepack": "^0.1.8",
+    "tmp-sync": "^1.0.1"
   },
   "repository": {
     "type": "git",
