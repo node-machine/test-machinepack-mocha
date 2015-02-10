@@ -3,9 +3,10 @@
  */
 
 var _ = require('lodash');
-var RawMachinepackTestRunner = require('test-machinepack').rawTestRunner;
+var path = require('path')
 var tmp = require('tmp-sync');
 var fs = require('fs-extra');
+var RawMachinepackTestRunner = require('test-machinepack').rawTestRunner;
 
 var root = process.cwd();
 var tmproot = path.join(root, 'tmp');
