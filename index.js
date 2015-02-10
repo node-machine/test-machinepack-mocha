@@ -33,7 +33,7 @@ module.exports = function mochaDriver(pathToMachinepackDir) {
 
       after(function(){
         process.chdir(root);
-        fs.remove(tmproot);
+        fs.removeSync(tmproot);
       });
 
       runTests(function onTest(testCase, nextTestCase){
