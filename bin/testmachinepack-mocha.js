@@ -9,7 +9,7 @@ var Mocha = require('mocha');
 //from within the projects package.json
 var timeoutPos = process.argv.indexOf('-t');
 var timeout = 10000;
-if (timeoutPos > -1) {
+if (timeoutPos > -1 && process.argv[timeoutPos + 1] !== undefined) {
   timeout = process.argv[timeoutPos + 1];
 }
 
