@@ -21,7 +21,7 @@
     "fs-extra": "^0.16.3",
     "lodash": "^3.1.0",
     "mocha": "^2.1.0",
-    "test-machinepack": "^0.1.8",
+    "test-machinepack": "^0.2.5",
     "tmp-sync": "^1.0.1"
   },
   "repository": {
