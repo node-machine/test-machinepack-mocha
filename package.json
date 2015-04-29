@@ -1,7 +1,7 @@
 {
   "name": "test-machinepack-mocha",
   "author": "Mike McNeil <@mikermcneil>",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Mocha test driver for test-machinepack",
   "keywords": [
     "test-machine",
