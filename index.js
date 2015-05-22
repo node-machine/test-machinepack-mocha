@@ -55,12 +55,17 @@ module.exports = function mochaDriver(pathToMachinepackDir) {
       });
     });
   }, function afterRunningAllTests(err, missingSuites) {
-      after(function(){
-        if (missingSuites.length > 0) {
-          showMissingSuites(missingSuites);
-        }
-      });
+    if (err) {
+      console.error('test-machinepack-mocha encountered an error while running tests:\n',err);
+      return;
+    }
+
     // Done.
+    after(function(){
+      if (_.isArray(missingSuites) && missingSuites.length > 0) {
+        showMissingSuites(missingSuites);
+      }
+    });
   });
 };
 
