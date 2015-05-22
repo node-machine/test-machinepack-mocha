@@ -18,9 +18,12 @@ module.exports = function mochaDriver(pathToMachinepackDir) {
   // Use cwd as our path unless overridden by the arg above
   pathToMachinepackDir = pathToMachinepackDir || root;
 
-  RawMachinepackTestRunner(pathToMachinepackDir,function beforeRunningAnyTests(opts, done){
-    // e.g. set mocha.opts based on generic `opts` provided
-    // TODO
+  var opts = {};
+  RawMachinepackTestRunner(pathToMachinepackDir,function beforeRunningAnyTests(_opts, done){
+    // Expose provided options via closure for use throughout this module.
+    opts = _opts || {};
+
+    // TODO: set mocha.opts based on `opts.driver.*` (if provided)
     done();
   }, function eachMachineSuite(machineIdentity, runTests){
     describe('`'+machineIdentity+'` machine', function (){
@@ -60,12 +63,15 @@ module.exports = function mochaDriver(pathToMachinepackDir) {
       return;
     }
 
-    // Done.
-    after(function(){
-      if (_.isArray(missingSuites) && missingSuites.length > 0) {
-        showMissingSuites(missingSuites);
-      }
-    });
+    // If `showMissingSuites` option is set, log a message to the console
+    // enumerating untested machines.
+    if (opts.showMissingSuites) {
+      after(function(){
+        if (_.isArray(missingSuites) && missingSuites.length > 0) {
+          showMissingSuites(missingSuites);
+        }
+      });
+    }
   });
 };
 
