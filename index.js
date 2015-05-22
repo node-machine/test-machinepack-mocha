@@ -54,9 +54,11 @@ module.exports = function mochaDriver(pathToMachinepackDir) {
         });
       });
     });
-  }, function afterRunningAllTests(err, results) {
+  }, function afterRunningAllTests(err, missingSuites) {
       after(function(){
-        if (results.length) {showMissingSuites(results);}
+        if (missingSuites.length > 0) {
+          showMissingSuites(missingSuites);
+        }
       });
     // Done.
   });
