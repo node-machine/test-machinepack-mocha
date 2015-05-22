@@ -3,7 +3,7 @@
  */
 
 var _ = require('lodash');
-var path = require('path')
+var path = require('path');
 var tmp = require('tmp-sync');
 var fs = require('fs-extra');
 var RawMachinepackTestRunner = require('test-machinepack').rawTestRunner;
