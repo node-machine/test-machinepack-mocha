@@ -5,7 +5,7 @@
 var _ = require('lodash');
 var path = require('path');
 var tmp = require('tmp-sync');
-var fs = require('fs-extra');
+var fsx = require('fs-extra');
 var RawMachinepackTestRunner = require('test-machinepack').rawTestRunner;
 
 var root = process.cwd();
@@ -36,7 +36,7 @@ module.exports = function mochaDriver(pathToMachinepackDir) {
 
       after(function(){
         process.chdir(root);
-        fs.removeSync(tmproot);
+        fsx.removeSync(tmproot);
       });
 
       runTests(function onTest(testCase, nextTestCase){
