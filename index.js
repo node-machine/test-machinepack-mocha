@@ -76,6 +76,7 @@ module.exports = function mochaDriver(pathToMachinepackDir) {
 };
 
 
+
 function showMissingSuites(missingSuites) {
   // Use setTimeout so that these logs appear after the mocha output
   setTimeout(function() {
@@ -119,3 +120,22 @@ function showMissingSuites(missingSuites) {
     console.error(borderLine);
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Programmatic access to chainable helper that facilitates
+ * manual test-writing for individual machines.
+ */
+module.exports.testMachineWithMocha = require('./test-machine-with-mocha');
+
+
+
