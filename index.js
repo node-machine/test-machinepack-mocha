@@ -11,15 +11,14 @@ var RawMachinepackTestRunner = require('test-machinepack').rawTestRunner;
 var root = process.cwd();
 var tmproot = path.join(root, 'tmp');
 
-
 // Customize generic test driver for mocha
-module.exports = function mochaDriver(pathToMachinepackDir) {
+module.exports = function mochaDriver(pathToMachinepackDir, singleMachineToTest) {
 
   // Use cwd as our path unless overridden by the arg above
   pathToMachinepackDir = pathToMachinepackDir || root;
 
   var opts = {};
-  RawMachinepackTestRunner(pathToMachinepackDir,function beforeRunningAnyTests(_opts, done){
+  RawMachinepackTestRunner(pathToMachinepackDir, singleMachineToTest, function beforeRunningAnyTests(_opts, done){
     // Expose provided options via closure for use throughout this module.
     opts = _opts || {};
 
