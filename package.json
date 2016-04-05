@@ -22,7 +22,7 @@
     "lodash": "^3.1.0",
     "machine": "^11.0.0",
     "mocha": "^2.1.0",
-    "test-machinepack": "^2.1.0",
+    "test-machinepack": "^2.1.6",
     "tmp-sync": "^1.0.1"
   },
   "repository": {
