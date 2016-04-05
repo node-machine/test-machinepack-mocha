@@ -4,19 +4,14 @@
 
 var _ = require('lodash');
 var path = require('path');
-var tmp = require('tmp-sync');
-var fsx = require('fs-extra');
 var RawMachinepackTestRunner = require('test-machinepack').rawTestRunner;
-
-var root = process.cwd();
-var tmproot = path.join(root, 'tmp');
 
 
 // Customize generic test driver for mocha
 module.exports = function mochaDriver(pathToMachinepackDir) {
 
   // Use cwd as our path unless overridden by the arg above
-  pathToMachinepackDir = pathToMachinepackDir || root;
+  pathToMachinepackDir = pathToMachinepackDir || process.cwd();
 
   var opts = {};
   RawMachinepackTestRunner(pathToMachinepackDir,function beforeRunningAnyTests(_opts, done){
@@ -27,17 +22,6 @@ module.exports = function mochaDriver(pathToMachinepackDir) {
     done();
   }, function eachMachineSuite(machineIdentity, runTests){
     describe('`'+machineIdentity+'` machine', function (){
-      var tmpdir;
-
-      before(function(){
-        tmpdir = tmp.in(tmproot);
-        process.chdir(tmpdir);
-      });
-
-      after(function(){
-        process.chdir(root);
-        fsx.removeSync(tmproot);
-      });
 
       runTests(function onTest(testCase, nextTestCase){
         var jsonInputVals;
