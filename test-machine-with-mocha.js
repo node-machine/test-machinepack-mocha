@@ -8,9 +8,6 @@ var _ = require('lodash');
 var testMachine = require('test-machinepack').testMachine;
 
 
-// TODO: potentially use this in test-machinepack-mocha
-
-
 
 /////////////// NOTE /////////////////////////////////////////////////////////////
 /// This is just here for reference so the secrets of `it` are not forgotten.  //
