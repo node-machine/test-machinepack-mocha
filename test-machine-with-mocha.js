@@ -77,7 +77,7 @@ module.exports = function testWithMocha (_machineInstance) {
           });
           return memo;
         }, [])
-      }).exec({
+      }).switch({
         error: function (err) {
           return done(err);
         },

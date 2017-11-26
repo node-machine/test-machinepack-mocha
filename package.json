@@ -20,7 +20,7 @@
     "async": "2.0.1",
     "lodash": "3.10.1",
     "mocha": "3.0.2",
-    "test-machinepack": "^2.1.11"
+    "test-machinepack": "^2.1.23"
   },
   "repository": {
     "type": "git",
